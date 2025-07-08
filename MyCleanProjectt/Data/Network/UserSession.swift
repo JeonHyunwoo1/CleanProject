@@ -14,7 +14,7 @@ public protocol SessionProtocol {
                  parameters: Parameters?,
                  headers: HTTPHeaders?) -> DataRequest
 }
-
+ 
 class UserSession: SessionProtocol {
     
     private var session: Session
