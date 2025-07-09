@@ -9,7 +9,7 @@ import Foundation
 
 public enum NetworkError: Error {
     case urlError
-    case invalid
+    case invalidResponse
     case failToDecode(String)
     case dataNil
     case serverError(Int)
@@ -20,7 +20,7 @@ public enum NetworkError: Error {
             
         case .urlError:
             "URL이 올바르지 않습니다"
-        case .invalid:
+        case .invalidResponse:
             "응답값이 유효하지 않습니다"
         case .failToDecode(let description):
             "디코딩 에러 \(description)"
