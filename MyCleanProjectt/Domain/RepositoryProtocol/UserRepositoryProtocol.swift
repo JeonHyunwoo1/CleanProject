@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol UserRepositoryProtocol {
+protocol UserRepositoryProtocol {
     
     func fetchUser(query: String, page: Int) async -> Result<UserListResult, NetworkError> //유저 리스트 불러오기 (원격)
     func getFavoriteUsers() -> Result<[UserListItem], CoreDataError> //전체 즐겨찾기 리스트 불러오기

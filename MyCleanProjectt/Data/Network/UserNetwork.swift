@@ -8,7 +8,11 @@
 import Foundation
 import Alamofire
 
-final public class UserNetwork {
+protocol UserNetworkProtocol {
+    func fetchUsers(query: String, page: Int) async -> Result<UserListResult, NetworkError>
+}
+
+final public class UserNetwork: UserNetworkProtocol {
     private let networkManager: NetworkManagerProtocol
     
     init(networkManager: NetworkManagerProtocol) {
