@@ -12,7 +12,7 @@ public protocol UserListUsecaseProtocol {
     func fetchUser(query: String, page: Int) async -> Result<UserListResult, NetworkError> //유저 리스트 불러오기 (원격)
     func getFavoriteUsers() -> Result<[UserListItem], CoreDataError> //전체 즐겨찾기 리스트 불러오기
     func saveFavoriteUser(user: UserListItem) -> Result<Bool, CoreDataError>
-    func deleteFavoriteUser(userID: String) -> Result<Bool, CoreDataError>
+    func deleteFavoriteUser(userID: Int) -> Result<Bool, CoreDataError>
     
     //유저리스트 - 즐겨찾기 포함된 유저인지
     func checkFavoriteState(fetchUsers: [UserListItem], favoriteUsers: [UserListItem]) -> [(user: UserListItem, isFavorite: Bool)]
@@ -41,7 +41,7 @@ public struct UserListUsecase: UserListUsecaseProtocol {
         repository.saveFavoriteUser(user: user)
     }
     
-    public func deleteFavoriteUser(userID: String) -> Result<Bool, CoreDataError> {
+    public func deleteFavoriteUser(userID: Int) -> Result<Bool, CoreDataError> {
         repository.deleteFavoriteUser(userID: userID)
     }
     

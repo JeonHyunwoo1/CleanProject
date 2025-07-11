@@ -28,7 +28,7 @@ public struct UserRepository: UserRepositoryProtocol {
         return coredata.saveFavoriteUser(user: user)
     }
     
-    func deleteFavoriteUser(userID: String) -> Result<Bool, CoreDataError> {
+    func deleteFavoriteUser(userID: Int) -> Result<Bool, CoreDataError> {
         return coredata.deleteFavoriteUser(userID: userID)
     }
     

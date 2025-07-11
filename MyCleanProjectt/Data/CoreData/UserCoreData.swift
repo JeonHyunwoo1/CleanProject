@@ -11,7 +11,7 @@ import CoreData
 public protocol UserCoreDataProtocol {
     func getFavoriteUsers() -> Result<[UserListItem], CoreDataError> //전체 즐겨찾기 리스트 불러오기
     func saveFavoriteUser(user: UserListItem) -> Result<Bool, CoreDataError>
-    func deleteFavoriteUser(userID: String) -> Result<Bool, CoreDataError>
+    func deleteFavoriteUser(userID: Int) -> Result<Bool, CoreDataError>
 }
 
 public struct UserCoreData: UserCoreDataProtocol {
@@ -59,7 +59,7 @@ public struct UserCoreData: UserCoreDataProtocol {
     
     
     
-    public func deleteFavoriteUser(userID: String) -> Result<Bool, CoreDataError> {
+    public func deleteFavoriteUser(userID: Int) -> Result<Bool, CoreDataError> {
         let fetchRequest: NSFetchRequest<FavoriteUser> = FavoriteUser.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %d", userID)
         
